@@ -4,9 +4,10 @@
     border: 0;
     box-sizing: border-box;
     font-size: Work Sans;
-    }
-    
-    body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,124 +17,110 @@
     background-image: linear-gradient(90deg, rgb(0, 0, 0), rgb(133, 133, 133));
     
     /* background-color: #363636; */
-    }
+}
+
+a {
+    color:rgb(0, 0, 0);
+    font-style: normal;
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 80px;
+    color: white;
+    margin: 50px 0 0 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+h2 {
+    text-align: center;
+    padding-bottom: 30px;
+    font-size: 25px;
+    font-family: Verdana;
+    font-weight: bold;
+}
     
-    h1 {
-        font-weight: bold;
-    }
-    h2 {
-        text-align: center;
-        padding-bottom: 30px;
-    }
+.card-header {
+    height: 50px;
+    border-style: none;
+    border-bottom: solid 1px;
+    width: 100%;
+}
     
-    .card-header {
-        height: 50px;
-        border-style: none;
-        border-bottom: solid 1px;
-        width: 100%;
-    }
-    
-    #cc {
-        
+#cc {    
     display: flex;
     align-items: center;
     justify-content: center;
     height: 65vh;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    }
+}
     
-    .card {
+.card {
     background-color: white;
     padding: 35px;
     border-radius: 3px;
     width:330px;
-    }
-    
-     #password, #email {
-        background-color: #4F4F4F;
-        border-radius: 30px;
-        width: 250px;
-        height: 47px;
-        padding: 0 0.6rem;
-        color: white;
-        font-size: 1rem;
-        border: 2px solid black;
-        display: flex;
-        flex-direction: column; 
-        align-items: center; 
-        margin-top: 1rem; 
+}
+
+::placeholder {
+    color: black;
+}
+
+#password, #email {
+    background-color: #868686;
+    border-radius: 30px;
+    width: 250px;
+    height: 47px;
+    padding: 0 0.6rem;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 1rem; 
      } 
-    
-     .contas {
-        border: 2px solid black;
-     }
-    
-     #contaG {
-        background-color: #DB4A39;
-        border-radius: 30px;
-        width: 250px;
-        height: 47px;
-        cursor: pointer;
-        font-weight: bold; 
-     }
-    
-     #contaG:hover {
-        background-color: #b12414;
-     }
-    
-     #contaF {
-        background-color: #3B5998;
-        border-radius: 30px;
-        width: 250px;
-        height: 47px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-    
-    #contaF:hover {
-        background-color: #193e8e;
-    }
-    
-    #button {
-        flex-direction: column;
-        align-items: center;
-        display: flex;
-        text-align: center;
-        cursor: pointer;
-        width: 20%;
-        height: 20px;
-        background-color: #808080;
-        border-radius: 30px;
-        border: 1px solid black;
-    }
-    
-    .registra {
-        text-align: center;
-        color: black;
-    }
 
     
-    h1 {
-        margin-top: 20px;
-        margin-bottom: 0px;
-        text-align: center;
-        font-size: 80px;
-        color: white;
-        margin: 50px 0 0 0;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+#button {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    cursor: pointer;
+    width: 20%;
+    height: 20px;
+    background-color: #808080;
+    border-radius: 30px;
+    border: 1px solid black;
     }
+
+.recuperar_senha {
+    font-weight: bold;
+}
     
-    .enviar {
-        cursor: pointer;
-        text-align: center;
-        text-transform: uppercase;
-        font-weight: bold;
-        background-color: #90ee90;
-        height: 20px;
-        align-items: center;
-        width: 80px;
-        border: 2px solid black;
-        border-radius: 30px;
-        
-    }
+.registra {
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+
+    
+    
+.enviar {
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #e7e7e7;
+    height: 47px;
+    align-items: center;
+    width: 250px;
+    border: 2px solid black;
+    border-radius: 30px;       
+}
     
