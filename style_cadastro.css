@@ -18,3 +18,14 @@
     align-items: center; 
     margin-top: 1rem; 
 }
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background-image: url("ifrj.png");
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
