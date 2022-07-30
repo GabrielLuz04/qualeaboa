@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-size: Work Sans;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-image: linear-gradient(90deg, rgb(0, 0, 0), rgb(133, 133, 133));
+    
+    /* background-color: #363636; */
+}
+
+a {
+    color:rgb(0, 0, 0);
+    font-style: normal;
+}
+
+h1 {
+    padding: 20px;
+    text-align: center;
+    font-size: 80px;
+    color: white;
+    margin: 50px 0 0 0;
+}
+
+h2 {
+    text-align: center;
+    padding-bottom: 30px;
+    font-family: Verdana;
+    font-weight: bold;
+}
+    
+.card-header {
+    height: 50px;
+    border-style: none;
+    border-bottom: solid 0.5px;
+    width: 100%;
+}
+    
+#cc {    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+    
+.card {
+    background-color: white;
+    padding: 35px;
+    border-radius: 15px;
+    width:330px;
+}
+
+::placeholder {
+    color: rgb(33, 32, 32);
+}
+
+#password, #email {
+    width: 250px;
+    height: 47px;
+    padding: 0 0.6rem;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 1rem; 
+}
+    
+/* #button {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    cursor: pointer;
+    width: 20%;
+    height: 20px;
+    background-color: #808080;
+    border-radius: 30px;
+    border: 1px solid black;
+    } */
+
+.recuperar_senha {
+    font-weight: bold;
+}
+    
+.registra {
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+
+    
+    
+.enviar {
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #615d5d;
+    height: 47px;
+    align-items: center;
+    width: 250px;
+    border: 2px solid black;
+    border-radius: 30px;       
+}
+
+.enviar:hover {
+    background-color: #474242;
+    box-shadow: 0 0 0.5em rgb(11, 83, 5);    
+ }
