@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="style_cadastro.css"> 
+    <title>Cadastro</title>
+    <script src= "https://code.jquery.com/jquery-1.12.4.min.js">
+    </script>
+</head>
+<body>
+
+<main>
+    <H2 class="card_cad">C A D A S T R O</H2>
+        <form class="card_cad" action="usuario.php" method="get">
+            <input type="text" class="nome" name="login" placeholder="Login">
+            <input type="text" class="nome" name="nome_usuario" placeholder="Nome">
+            <input type="text" class="sobren" name="sobrenome" placeholder="Sobrenome">
+            <input type="email" class="email" name="email" placeholder="E-mail">
+            <input type="password" class="password" name="senha" placeholder="Senha">
+            <input type="password" class="passwordC" name="senha" placeholder="Confirme sua senha">
+            <input type="date" class="numero" name="data_nascimento" placeholder="Data de Nascimento">            
+            <input type="int" class="numero" name="cpf" placeholder="CPF">
+            <br>            
+            <label for="serv"> </label>
+            <input type="radio"> Servidor
+            <label for="aluno"> </label>
+            <input type="radio"> Aluno
+            <br><br>
+            <h5>Coloque um arquivo de foto sua aqui:</h5>
+            <label class="lab" for="arquivo">Enviar arquivo</label>
+            <input type="file" name="arquivo" id="arquivo" accept="image/*">
+            <h4><!-- Selected file will get here --></h4>
+            <script>
+                $(document).ready(function() {
+                $('input[type="file"]').change(function(e) {
+                var arquivo = e.target.files[0].name; 
+                $("h4").text('O arquivo ' + ( arquivo ) + ' foi selecionado.');
+            });
+            });
+            </script>
+            <br><br>
+            <input type="submit" class="enviar" name="op" value="registrar">
+        </form>
+    </main>    
+</body>
+</html>
