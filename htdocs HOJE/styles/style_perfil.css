@@ -1,0 +1,78 @@
+.flex-container {
+    display: flex;
+    /* background-color: rgb(0, 0, 0); */
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 10px;
+    
+  }
+  
+  .flex-container > div {
+    background-color: #f1f1f1;
+    margin: 20px;
+    padding: 20px;
+    font-size: 30px;
+    height: 350px;
+    width: 250px;
+    transition: 200ms;
+  }
+  
+  .card-img-top {
+    width: 286px;
+    height: 160px;
+  }
+
+  header {
+    margin: 20px;
+    border: 1rem;
+    border-bottom: 1px solid #000; 
+  }
+  
+  .card-data {
+    font-size: 12px;
+    color: #ff2948;
+    font-family: 'Work Sans', sans-serif;
+  }
+  
+  .card-title {
+    color: #191F28;
+    font-size: 22px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .card-local {
+    color: #4c576c;
+    font-size: 12px;
+    font-family: 'Work Sans', sans-serif
+  
+  }
+
+.psf{
+    height: 200px;
+    width: 200px;
+    vertical-align: middle;
+}
+
+.snome {
+    padding: 50px;
+    font-size: 50px;
+}
+
+.saida {
+    height: 30px;
+    width: 30px;
+}
+
+.cabecalho {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    text-align: right;
+    justify-content: space-between;
+    margin: 15px;
+  }
+
+.mais {
+    width: 30px;
+    height: 30px;
+}

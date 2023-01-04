@@ -1,0 +1,29 @@
+.logo-evento{
+    float:left;
+    width:650px;
+    height:420px;
+    align-items: center;
+    /* margin: 50px 50px 50px 50px; */
+}
+
+.redesocial {
+    width: 35px;
+    height: 35px;
+}
+
+.name-event {
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+
+.descricao {
+    border: 2px solid black;
+    padding: 15px;
+    text-align: justify;
+}
+
+.interesse {
+    display: flex;
+    float: right;
+}
