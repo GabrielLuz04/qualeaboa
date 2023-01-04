@@ -55,7 +55,7 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="password">
+						<input class="input100" type="password" name="password" minlength="8" required>						
 						<span class="focus-input100" data-placeholder="Senha"></span>
 					</div>
 

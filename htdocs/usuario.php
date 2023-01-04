@@ -16,14 +16,17 @@ switch($operacao){
 			if($entrada == 2)
 				execPesquisar();   
 			break;
-		case 4:  // alterar
-			$entrada = $_GET['entrada'];
-			if($entrada == 1)
-				formPesquisarAlterar();
-			if($entrada == 2)
+		case "Editar":  // alterar
+			// $entrada = $_GET['entrada'];
+			// if($entrada == 1)
+			// 	formPesquisarAlterar();
+			// if($entrada == 2)
 				formAlterar();   
-			if($entrada == 3)
-				execAlterar();   
+			// if($entrada == 3)
+			// 	execAlterar();   
+			break;
+		case "ExecEditar":
+			execAlterar(); 
 			break;
 		case 5:  // excluir
 			$entrada = $_GET['entrada'];            
@@ -99,11 +102,16 @@ function execIncluir() {
 	$sobrenome = $_GET['sobrenome'];
 	$email = $_GET['email'];
 	$senha = $_GET['senha'];
+	$confirmsenha = $_GET['confirmsenha'];
 	$data_nascimento = $_GET['data_nascimento'];
 	$cpf = $_GET['cpf'];
 	
 	
-	
+	if($confirmsenha != $senha) {
+		$_SESSION['nao_autenticado'] = true;  
+		header('Location: cadastro.php');
+    	exit();
+	}
 	
 	$sql = "INSERT INTO usuario (login, nome_usuario, sobrenome, email, senha, data_nascimento, cpf) values('$login', '$nome_usuario', '$sobrenome', '$email', '$senha', '$data_nascimento', '$cpf')";
 	
@@ -279,11 +287,23 @@ function formPesquisarAlterar() {
 	}
 function formAlterar() {
 	
-	$cpf = $_GET['cpf'];
-	
+	include("verifica_login.php");
+    include_once("banco.php"); // caminho do seu arquivo de conexão ao banco de dados 
+    $host = "127.0.0.1";  
+    $db   = "qualeaboa";     
+    $user = "root";       
+    $pass = "";           
+
+    $conn = mysqli_connect("$host","$user","$pass","$db") or die ("problemas na conexão");
+    $consulta = "SELECT * FROM usuario"; 
+    $con = $conn->query($consulta) or die($conn->error);
+
 	$conn = conectar();
+
 	
-	$sql = "SELECT * FROM usuario WHERE '$cpf' = cpf";
+	$login = $_SESSION['login'];
+	
+	$sql = "SELECT * FROM usuario WHERE '$login' = login";
 	
 	$dados = mysqli_query($conn,$sql);
 	$total = mysqli_num_rows($dados);
@@ -291,7 +311,7 @@ function formAlterar() {
 	if($total==0) {
 		echo'<br>Evento não encontrado. Tente novamente';
 		
-		echo"\n <br><hr><a href='index.html'>VOLTAR</a>";
+		echo"\n <br><hr><a href='index.php'>VOLTAR</a>";
 		exit();
 	}
 	
@@ -307,30 +327,72 @@ function formAlterar() {
 	
 	
 	echo "
-    <html>
-    <head>
-	    <meta charset='utf-8'>
-    </head>
-    <body>
-    <center><h1>ALTERAÇÃO DE USUARIO</h1></center>
-    <HR>
-	    <form action='usuario.php' method='GET'>
-		    PREENCHA OS DADOS: <BR>
-			
-			<br>LOGIN:<input type='text' name='login' value='$login'> <br>
-			<br>Nome:<input type='text' name='nome_usuario' value='$nome_usuario'> <br>
-		    <br>Sobrenome:<input type='text' name='sobrenome' value='$sobrenome'> <br>
-		    <br>E-mail:<input type='email' name='email' value='$email'> <br>
-			<br>SENHA:<input type='password' name='senha' value='$senha'> <br>
-			<br>DATA DE NASCIMENTO:<input type='date' name='data_nascimento' value='$data_nascimento'> <br>
-			<br>CPF:<input type='cpf' name='cpf' value='$cpf'> <br>
-            <input type='hidden' name='op' value='4'>
-		    <input type='hidden' name='entrada' value='3'>
-		    <input type='submit' name='enviar' value='ENVIAR'>
-		    <input type='reset' name='limpar' value='LIMPAR'>
-        </form>
-    </body>
-    </html>	
+
+	<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+    <title>Qual é a boa?</title>
+	<link REL='SHORTCUT ICON' HREF='assets/favicon.ico'>
+
+	<link rel='stylesheet' type='text/css' href='styles/util.css'>
+    <link rel='stylesheet' type='text/css' href='styles/main.css'>
+	
+    <div class='limiter'>
+		<div class='container-login100'>
+			<div class='wrap-login100'>
+				<form class='login100-form validate-form' action ='usuario.php' method='get'>
+					<span class='login100-form-title p-b-26'>
+						Atualizar meus dados ($cpf)
+					</span>
+					<span class='login100-form-title p-b-48'>
+					</span>
+
+					<div class='wrap-input100 validate-input'>
+						<input class='input100' type='text' name='login' value='$login'>
+						<span class='focus-input100' data-placeholder='Login'></span>
+					</div>
+					
+					<div class='wrap-input100 validate-input'>
+						<input class='input100' type='text' value='$nome_usuario' name='nome_usuario'>
+						<span class='focus-input100' data-placeholder='Primeiro nome'></span>
+					</div>
+
+					<div class='wrap-input100 validate-input'>
+						<input class='input100' type='text' value='$sobrenome' name='sobrenome'>
+						<span class='focus-input100' data-placeholder='Sobrenome'></span>
+					</div>
+
+					<div class='wrap-input100 validate-input' data-validate = 'Valid email is: a@b.c'>
+						<input class='input100' type='email' value='$email' name='email'>
+						<span class='focus-input100' data-placeholder='E-mail'></span>
+					</div>
+
+						<input class='input100' type='hidden' value='$cpf' name='cpf'>
+
+					
+            </script>
+
+					
+
+					<div class='container-login100-form-btn'>
+						<div class='wrap-login100-form-btn'>
+							<div class='login100-form-bgbtn'></div>
+							<button value='ExecEditar' name='op' class='login100-form-btn'>
+								Alterar
+							</button>
+						</div>
+					</div>			
+				</form>
+			</div>
+		</div>
+	</div>
+
+</head>
+</html>
     ";
 
 }
@@ -340,23 +402,23 @@ function execAlterar() {
 	$nome_usuario = $_GET['nome_usuario'];
 	$sobrenome = $_GET['sobrenome'];
 	$email = $_GET['email'];
-	$senha = $_GET['senha'];
-	$data_nascimento = $_GET['data_nascimento'];
-	$cpf = $_GET['cpf'];	
-	
-	$sql = "UPDATE usuario SET login='$login', nome_usuario='$nome_usuario', sobrenome='$sobrenome', email='$email', senha='$senha', data_nascimento='$data_nascimento', cpf='$cpf' WHERE '$cpf' = cpf";
+	$cpf = $_GET['cpf'];
 
+	$sql = "UPDATE usuario SET login='$login', nome_usuario='$nome_usuario', sobrenome='$sobrenome', email='$email' WHERE '$cpf' = cpf";
+	
 	$conn = conectar();
 	
 	$status = mysqli_query($conn,$sql);
 	
 	if($status) {
+		session_start();
+		$_SESSION['login'] = $login;
 	    echo "<br>Registro de usuário alterado";
-		echo "<br><hr><a href='index.html'>VOLTAR</a>";
+		echo "<br><hr><a href='index.php'>VOLTAR</a>";
 	}else {
 	    echo "<br>Erro na alteração";
 	
-		echo "<br><hr><a href='index.html'>VOLTAR</a>";
+		echo "<br><hr><a href='index.php'>VOLTAR</a>";
 	}	
 }
 function formExcluir() {

@@ -30,7 +30,7 @@
       html, body {
       min-height: 100%;
       /* background-image: linear-gradient(to right, #a619b3, #4796a8, #bbff9c);; */
-      background-color: black;
+      background-color: rgb(255, 255, 255);
       }
       body, div, form, input, select, p { 
       padding: 0;
@@ -38,7 +38,7 @@
       outline: none;
       font-family: Roboto, Arial, sans-serif;
       font-size: 16px;
-      color: #eee;
+      color: rgb(0, 0, 0);
       }
       body {
       background: url("/uploads/media/default/0001/01/b5edc1bad4dc8c20291c8394527cb2c5b43ee13c.jpeg") no-repeat center;
@@ -102,16 +102,16 @@
       margin-bottom: 30px;
       background: transparent;
       border: none;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid rgb(136, 116, 116);
       }
       input::placeholder {
-      color: #363636;
+      color: #cfbebe;
       }
       option:focus {
       border: none;
       }
       option {
-      background: black; 
+      background: white; 
       border: none;
       }
       #assunto, .espec {
@@ -132,7 +132,8 @@
       margin-top: 20px;
       border-radius: 5px; 
       border: none;
-      background: #26a9e0; 
+      /* background: #26a9e0;  */
+      background: black;
       text-decoration: none;
       font-size: 15px;
       font-weight: 400;
@@ -145,9 +146,9 @@
       button {
       width: 100%;
       }
-      button:hover, .btn-item:hover {
+      /* button:hover, .btn-item:hover {
       background: #85d6de;
-      }
+      } */
       @media (min-width: 568px) {
       html, body {
       height: 100%;
@@ -171,19 +172,25 @@
         </div>
         <div class="info">
             <label>Nome do evento:</label>
-                <input class="fname" type="text" name="nome_evento" placeholder="Nome do Evento">
+                <input class="fname" type="text" name="nome_evento" placeholder="Nome do Evento" required>
             <label>Endereço: </label> 
-                <input type="text" name="local_evento" placeholder="Avenida John Textor, xxx">
+                <input type="text" name="local_evento" placeholder="Avenida John Textor, xxx" required>
             <label>Cidade: </label>
-                <input type="text" name="cidade" placeholder="Niterói">
+				<select id='cidade' name='cidade'>
+                	<option value='Niterói'>Niterói</option>
+                	<option value='Itaboraí'>Itaboraí</option>
+                	<option value='São Gonçalo'>São Gonçalo</option>
+                	<option value='Maricá'>Maricá</option>
+                	<option value='Rio de Janeiro'>Rio de Janeiro</option>
+            	</select>
             <label>Data: </label>
-                <input type="date" name="data_evento" placeholder="" class="espec">
+                <input type="date" name="data_evento" placeholder="" class="espec" required>
             <label>Hora: </label>
-                <input type="time" name="hora" placeholder="" class="espec">
+                <input type="time" name="hora" placeholder="" class="espec" required>
             <label>Preço: </label>
-                <input type="text" name="preco" placeholder="R$90,00">
+                <input type="text" name="preco" placeholder="90,00" required>
             <label>Classificação Indicativa: </label>
-                <input type="int" name="classificacao_indicativa" placeholder="14 anos">
+                <input type="int" name="classificacao_indicativa" placeholder="14 anos" required>
             <label>Assunto: </label>
             <select id="assunto" name="assunto">
                 <option value="Acadêmico">Acadêmico</option>
@@ -214,7 +221,7 @@
                 <br>
                 <textarea class="descricao" cols="35" rows="8" name='descricao'></textarea><br>
             <label>Autor: </label>
-                <input name='autor' value='<?php echo $_SESSION['login']?>'><br><br>
+                <input readonly required name='autor' value='<?php echo $_SESSION['login']?>'><br><br>
 			    <input type='hidden' name='op' value='1'>
         </div>
         <button type="submit" data-toggle="modal" data-target="#modalEvento" name="entrada" value="CRIAR">Criar</button>

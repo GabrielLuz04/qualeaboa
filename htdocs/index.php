@@ -15,7 +15,7 @@
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <!-- https://startbootstrap.com/snippets/navbar-logo
 https://codepen.io/girraj-ch/details/yLBdjNX -->
@@ -28,7 +28,7 @@ https://codepen.io/girraj-ch/details/yLBdjNX -->
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/styles.css"> 
   <title>Qual é a boa?</title>
   <link REL="SHORTCUT ICON" HREF="assets/favicon.ico">
 </head>
@@ -62,22 +62,12 @@ https://codepen.io/girraj-ch/details/yLBdjNX -->
 
       
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="perfil.php" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <?php echo $_SESSION['login']?>
-        </a>
-          <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
-            <h6 class="dropdown-header">
-                <?php echo $_SESSION['login']?>
-            </h6>
-            <a class="dropdown-item" href="#">Meu perfil</a>
-            <a class="dropdown-item" href="#">Ajuda</a>
-            <a class="dropdown-item" href="#">Sair</a>
-          </div>
-
-        </li>
-
-      </ul>
+      
+      <a class="nav-link dropdown-toggle" href="perfil.php" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <?php echo $_SESSION['login']?>
+      </a>
+      
+    </ul>
 
       </div>
   </nav>
@@ -86,7 +76,7 @@ https://codepen.io/girraj-ch/details/yLBdjNX -->
     <h2 class="pri">Principais Eventos</h2>
 </div>
     
-
+<div class='flex-container'>
 <?php
        
        $sql = "select * from evento";
@@ -117,15 +107,15 @@ https://codepen.io/girraj-ch/details/yLBdjNX -->
            
            echo "
            
-           <div class='flex-container'>
-           <div class='card' style='width: 18rem;'>
+           <div class='flex-container' style='display: flex; align-items: center'>
+           <div class='card' style='width: 18.5rem;'>
            <form action='evento.php' method='get'>
-        <img src='./assets/bfrcrp.jpg' class='card-img-top' alt='...'>
-        <div class='card-body'>
-        <h6 class='card-data'> $data_evento </h6>  
-        <h4 class='card-title'>$nome_evento</h4>
-        <h6 class='card-local'>$local_evento</h6>
-        <input type='hidden' name='entrada' value='$nome_evento'>
+            <img src='./assets/bfrcrp.jpg' class='card-img-top' alt='...'>
+          <div class='card-body'>
+          <h6 class='card-data'> $data_evento </h6>  
+          <h4 class='card-title'>$nome_evento</h4>
+          <h6 class='card-local'>$local_evento</h6>
+          <input type='hidden' name='entrada' value='$nome_evento'>
                 <input type='submit' class='btn btn-success' name='op' value='Conferir'>
         </input>
         </form>
@@ -137,6 +127,27 @@ https://codepen.io/girraj-ch/details/yLBdjNX -->
        }
        
     ?>
-    
+</div> <!--fecha a div flex conteiner --> 
+
+
+    <!-- <div class="xereca">
+    <h2 id="Nit" class="pri">Eventos em Niterói</h2>
+    </div>
+  
+    <div class="xereca">
+    <h2 id="Nit">Eventos em Itaboraí</h2>
+    </div>
+
+    <div class="xereca">
+    <h2 id="Nit">Eventos em São Gonçalo</h2>
+    </div>
+
+    <div class="xereca">
+    <h2 id="Nit">Eventos em Maricá</h2>
+    </div>
+
+    <div class="xereca">
+    <h2 id="Nit">Eventos em Rio de Janeiro</h2>
+    </div> --> 
 </body>
 </html>
