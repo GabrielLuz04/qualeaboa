@@ -1,0 +1,14 @@
+.lab {
+    padding: 8px 10px;
+    height: 20px;
+    width: 180px;
+    background-color: #000000;
+    color: #FFF;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 25px;
+    }
